@@ -1,0 +1,39 @@
+<html>
+  <head>    
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawVisualization);
+
+      function drawVisualization() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', '3RM', '4RM', '5RM', 'EXE', 'Average'],
+          ['2013',459000,706000,855000,980000,750000],
+          ['2014',437500,685000,850000,930000,725625],
+          ['2015',434000,842500,962500,949000,797000],
+          ['2016',425000,838000,995000,969000,806750],
+          ['2017',412500,815000,960000,951500,784750],
+          ['2018',430000,850000,982000,983000,811250],
+          ['2019',426250,720000,1000000,1065000,802812.5],
+          ['2020',406944,759500,1040094,1000000,801634.5]		  
+        ]);
+
+        var options = {
+    		  title : 'Top HDB Sales by category from 2013 to 2020',
+          vAxis: {title: 'Cups'},
+          hAxis: {title: 'Month'},
+          seriesType: 'bars',
+          //series: {5: {type: 'line'}}
+		  series: {4: {type: 'line'}}
+        };
+
+        var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+	<a href="https://developers-dot-devsite-v2-prod.appspot.com/chart/interactive/docs">Using Google Charts</a>
+  </body>
+</html>
